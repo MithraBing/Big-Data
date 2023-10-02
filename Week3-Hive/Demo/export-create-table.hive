@@ -1,0 +1,6 @@
+create table countrieswithmostpop as
+select country.name, avg(city.population) from city, country
+  where city.countrycode = country.code
+  group by country.name
+  order by avg(city.population) desc
+  limit 10;
